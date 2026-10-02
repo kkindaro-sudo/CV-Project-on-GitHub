@@ -1,20 +1,32 @@
-## My pagedown rendered CV
+# Karen Kindaro CV
 
-This repo contains the source-code and results of my CV built with the [pagedown package](https://pagedown.rbind.io) and a modified version of the 'resume' template. 
+This repository contains a data-driven CV created in R Markdown for Part II of Lab 06.
 
-The main files are:
+## Repository files
 
-- `index.Rmd`: Source template for the cv, contains a variable `PDF_EXPORT` in the header that changes styles for pdf vs html. 
-- `index.html`: The final output of the template when the header variable `PDF_EXPORT` is set to `FALSE`. View it at [nickstrayer.me/cv](http://nickstrayer.me/cv).
-- `strayer_cv.pdf`: The final exported pdf as rendered by Chrome on my mac laptop. Links are put in footer and notes about online version are added. 
-- `resume.Rmd`: Source template for single page resume. 
-- `strayer_resume.pdf`: Result for single page resume.
-- `positions.csv`: A csv with columns encoding the various fields needed for a position entry in the CV. A column `section` is also available so different sections know which rows to use.
-- `css/`: Directory containing the custom CSS files used to tweak the default 'resume' format from pagedown. 
+- `index.Rmd` - R Markdown CV template
+- `index.html` - rendered CV and GitHub Pages homepage
+- `positions.csv` - education and work-experience data
+- `parsing_functions.R` - helper functions that convert CSV rows into CV sections
+- `css/resume.css` - custom CV styling
+- `Karen_Kindaro_CV.Rproj` - RStudio project file
 
-## Want to use this to build your own CV/resume? 
+## Render the CV
 
-1. Fork, clone, download the zip of this repo to your machine with RStudio.
-2. Go through and personalize the supplementary text in the Rmd you desire (`index.Rmd` for CV, `resume.Rmd` for resume).
-3. Using your spreadsheet editor of choice, replace the rows of `positions.csv` with your positions.
-3. Print each unique `section` (as encoded in the `section` column of `positions.csv`) in your `.Rmd` with the command `position_data %>% print_section('education')`.
+1. Open `Karen_Kindaro_CV.Rproj` in RStudio.
+2. Install the required packages if necessary:
+
+   ```r
+   install.packages(c("pagedown", "tidyverse", "glue"))
+   ```
+
+3. Open `index.Rmd` and select **Knit**.
+4. Confirm that the updated `index.html` appears in the repository root.
+
+## Publish with GitHub Pages
+
+1. Upload or push every file in this folder to the root of your GitHub CV repository.
+2. Open **Settings > Pages** in GitHub.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select the `main` branch and `/ (root)` folder, then save.
+5. Copy the repository URL and the published GitHub Pages URL for Canvas.
